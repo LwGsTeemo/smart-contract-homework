@@ -1,0 +1,71 @@
+pragma solidity >=0.4.22 <0.6.0;
+
+contract B0843020 {
+     
+    //投票可選的提案數據結構
+    struct Proposal {
+        bytes32 name;
+        uint voteCount;
+    }
+     
+    //投票者的數據結構
+    struct Voter {
+        uint weight;
+        bool voted;
+        uint votedProposal;
+    }
+     
+    Proposal[] proposals; //提案列表
+    address chairperson; //發起投票的人(這個投票合約的擁有者)
+    mapping(address => Voter) voters; //投票者地址與投票狀態的變數
+     
+    //合約建構子
+    constructor(bytes32[] memory proposalNames) public {
+        chairperson = msg.sender; //發起投票的人=呼叫建構子(創立這個合約)的人
+        voters[chairperson].weight = 1; //發起投票的人的投票權重(可以投1票)
+         
+        //把傳進的所有提案push進提案列表
+        for(uint i = 0; i < proposalNames.length; i++) {
+            proposals.push(Proposal({
+                name: proposalNames[i],
+                voteCount: 0
+            }));
+        }
+    }
+     
+    //發起投票的人指定誰有權利投票的function
+    //預防有人惡意使用多個帳號影響投票公正性
+    function giveRightToVote(address voter) public {
+        require(msg.sender == chairperson);//確認調用這個function的人是發起投票的人
+        require(voters[voter].voted == false);//確認要被授權投票權利的人是還沒有投票的人
+        require(voters[voter].weight == 0);//確認要被授權投票權利的人是沒有投票權利的人(投票權重0)
+         
+        voters[voter].weight = 1;//將要被授權投票權利的人的投票權重設為1
+    }
+     
+    //投票
+    function vote(uint proposal) public {
+        Voter storage sender = voters[msg.sender];//用storage修飾這個變數讓這個投票者的資訊會被記錄在區塊鏈上
+         
+        require(sender.voted ==false);//確認投票者是還沒有投過票的人
+        require(sender.weight > 0);//確認投票者是有權利投票的人(投票權重>0)
+         
+        sender.voted = true;//將投票者設為已投票
+        sender.votedProposal = proposal;//將投票者投的提案記錄在會被備份在區塊鏈的變數上
+         
+        proposals[proposal].voteCount += sender.weight;//將提該案的人數加上投票者投的權重
+    }
+     
+    //開票
+    function showWinningProposal() public view returns (uint winningProposal) {
+        uint maxVote = 0; //將目前最多的得票數設為0
+         
+        //迴圈找出所有提案得票數最多的
+        for(uint i = 0; i < proposals.length; i++) {
+            if(proposals[i].voteCount > maxVote) {
+                maxVote = proposals[i].voteCount;
+                winningProposal = i;
+            }
+        }
+    }
+}

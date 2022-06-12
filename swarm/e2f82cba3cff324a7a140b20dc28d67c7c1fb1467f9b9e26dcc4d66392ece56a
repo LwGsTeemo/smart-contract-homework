@@ -1,0 +1,95 @@
+{
+	"compiler": {
+		"version": "0.5.17+commit.d19bba13"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "proposalNames",
+						"type": "bytes32[]"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					}
+				],
+				"name": "giveRightToVote",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "showWinningProposal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "winningProposal",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposal",
+						"type": "uint256"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"B0843020.sol": "B0843020"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"B0843020.sol": {
+			"keccak256": "0xbab8a81dd643b538aa6a607dc14901605a78eb22368347eaae46f1c167166cd2",
+			"urls": [
+				"bzz-raw://9d3d63132f0114e7d0b0826082351ff13a30406dc887416f8ed9b598be25a920",
+				"dweb:/ipfs/QmTjw1saDrNM4WNXzMioGcgibbiHoCCNJQDdUbT3LtvP9e"
+			]
+		}
+	},
+	"version": 1
+}

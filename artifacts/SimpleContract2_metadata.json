@@ -1,0 +1,116 @@
+{
+	"compiler": {
+		"version": "0.5.17+commit.d19bba13"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "addition",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "y",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "currValue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "difference",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "y",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					}
+				],
+				"name": "division",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "y",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SimpleContract.sol": "SimpleContract2"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"SimpleContract.sol": {
+			"keccak256": "0xf5f20b422a5be96524e4b045db77d876ad673109f6f0c5a83da63d8fbb971f17",
+			"urls": [
+				"bzz-raw://59b8df598383aa82bb940ee0efda1d0801a323c5ca1384c08d57d83ee626885c",
+				"dweb:/ipfs/QmeeukB2VpBb6GhT1EBDf2WsWx88Bvads7BMyP8WmEBMQd"
+			]
+		}
+	},
+	"version": 1
+}
